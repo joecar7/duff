@@ -1,10 +1,19 @@
 #include <stdio.h>
 
-void send(register char **to, register char **from, register count)
+void send(register short *to, register short *from, register count)
 {
-	do {
-		*to = *from++;
-	} while(--count>0);
+	register n=(count+7)/8;
+	switch(count%8){
+	case 0:	do{	*to = *from++;
+	case 7:		*to = *from++;
+	case 6:		*to = *from++;
+	case 5:		*to = *from++;
+	case 4:		*to = *from++;
+	case 3:		*to = *from++;
+	case 2:		*to = *from++;
+	case 1:		*to = *from++;
+		}while(--n>0);
+	}
 }
 
 int main(int argc, char **argv)
