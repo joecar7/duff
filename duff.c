@@ -1,10 +1,12 @@
 #include <stdio.h>
 
-void send(register short *to, register short *from, register count)
+void send(register char **to, register char **from, register count)
 {
 	register n=(count+7)/8;
+	printf("%=%d\n", count%8);
 	switch(count%8)
 	do{
+		printf("n=%d\n", n);
 	case 0:	*to = *from++;
 	case 7:	*to = *from++;
 	case 6:	*to = *from++;
