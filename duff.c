@@ -3,7 +3,7 @@
 void send(register short *to, register short *from, register count)
 {
 	register n=(count+7)/8;
-	switch(count%8){
+	switch(count%8)
 	case 0:	do{	*to = *from++;
 	case 7:		*to = *from++;
 	case 6:		*to = *from++;
@@ -13,7 +13,6 @@ void send(register short *to, register short *from, register count)
 	case 2:		*to = *from++;
 	case 1:		*to = *from++;
 		}while(--n>0);
-	}
 }
 
 int main(int argc, char **argv)
